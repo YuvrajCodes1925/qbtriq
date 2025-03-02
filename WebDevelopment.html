@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development - QBtriq</title>
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #333;
+            --accent-color: #ff6b4a;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --light-text: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #304eff, #4a6bff);
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            transition: 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .service-card p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+        
+        .process {
+            background-color: var(--light-bg);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 80px 0;
+            flex-wrap: wrap;
+        }
+        
+        .process-steps::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+            z-index: 1;
+        }
+        
+        .step {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 150px;
+            margin: 0 auto 30px;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .step p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .technologies {
+            background-color: white;
+            padding-bottom: 40px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 30px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tech-name {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .portfolio {
+            background-color: var(--light-bg);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+            transition: 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-image {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+        }
+        
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .portfolio-content p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #304eff, #4a6bff);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .step {
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">QBtriq</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Web Development Solutions</h1>
+                <p>Custom websites and web applications designed to engage your audience, reflect your brand, and drive business growth.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+    </header>
+    
+    <section>
+        <div class="container">
+            <h2>Our Web Development Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Website Design</h3>
+                    <p>Visually stunning, user-friendly websites designed to showcase your brand and convert visitors into customers.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>E-Commerce Development</h3>
+                    <p>Powerful online stores with secure payment processing, inventory management, and seamless customer experiences.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Web Application Development</h3>
+                    <p>Custom web applications and software solutions to streamline your business processes and enhance productivity.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>CMS Implementation</h3>
+                    <p>User-friendly content management systems that give you complete control over your website content.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Responsive Web Design</h3>
+                    <p>Mobile-friendly websites that provide an optimal viewing experience across all devices and screen sizes.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Website Maintenance</h3>
+                    <p>Regular updates, security patches, and technical support to keep your website running smoothly and securely.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process">
+        <div class="container">
+            <h2>Our Development Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>Understanding your goals, audience, and requirements</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>Creating a strategic roadmap for your project</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Design</h3>
+                    <p>Crafting visually appealing, user-focused interfaces</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Development</h3>
+                    <p>Building your website with clean, efficient code</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Testing</h3>
+                    <p>Ensuring quality, performance, and compatibility</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Launch</h3>
+                    <p>Deploying your website and celebrating success</p>
+                </div>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Our structured development process ensures clear communication, consistent progress, and exceptional results for every project.</p>
+        </div>
+    </section>
+    
+    <section class="technologies">
+        <div class="container">
+            <h2>Technologies We Use</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">⚛️</div>
+                    <div class="tech-name">React</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🅰️</div>
+                    <div class="tech-name">Angular</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">📜</div>
+                    <div class="tech-name">JavaScript</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🐍</div>
+                    <div class="tech-name">Python</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🐘</div>
+                    <div class="tech-name">PHP</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">📊</div>
+                    <div class="tech-name">Node.js</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔷</div>
+                    <div class="tech-name">WordPress</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🛒</div>
+                    <div class="tech-name">WooCommerce</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔸</div>
+                    <div class="tech-name">Shopify</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🗄️</div>
+                    <div class="tech-name">MySQL</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🌟</div>
+                    <div class="tech-name">MongoDB</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔒</div>
+                    <div class="tech-name">AWS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="portfolio">
+        <div class="container">
+            <h2>Recent Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/img/Luxury Retail E-Commerce.jpeg" alt="placeholder">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Luxury Retail E-Commerce</h3>
+                        <p>A premium shopping experience for a high-end fashion retailer.</p>
+                        <div class="tags">
+                            <span class="tag">E-Commerce</span>
+                            <span class="tag">Shopify</span>
+                            <span class="tag">Custom Design</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/img/Restaurant Booking System.png" alt="placeholder">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Restaurant Booking System</h3>
+                        <p>An integrated reservation and order management system for a restaurant chain.</p>
+                        <div class="tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/img/Corporate Website Redesign.jpeg" alt="placeholder">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Corporate Website Redesign</h3>
+                        <p>A modern, responsive website redesign for a financial services firm.</p>
+                        <div class="tags">
+                            <span class="tag">Corporate</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Build Your Dream Website?</h2>
+            <p>Let's create a web presence that perfectly represents your brand and helps you achieve your business goals.</p>
+            <a href="#" class="btn btn-white">Get a Free Quote</a>
+            <a href="#" class="btn btn-outline">View All Projects</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>QBtriq</h4>
+                    <p>Your partner in innovative digital marketing, social media growth, and web development.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Social Media Growth</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: socials.qbtriq@gmail.com</p>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📸</a>
+                        <a href="#">🔗</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 QBtriq. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

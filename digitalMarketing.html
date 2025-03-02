@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing - QBtriq</title>
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #333;
+            --accent-color: #ff6b4a;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --light-text: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #304eff);
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            transition: 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .service-card p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+        
+        .benefits {
+            background-color: var(--light-bg);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), #304eff);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">QBtriq</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Digital Marketing Solutions</h1>
+                <p>Drive growth and increase conversions with our comprehensive digital marketing strategies tailored specifically for your business.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+    </header>
+    
+    <section>
+        <div class="container">
+            <h2>Our Digital Marketing Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Strategic Campaign Management</h3>
+                    <p>We develop comprehensive, data-driven marketing campaigns aligned with your business goals and target audience behavior.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Multi-Channel Marketing</h3>
+                    <p>Reach your audience wherever they are with integrated marketing across search, social media, email, and more.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Performance Analysis</h3>
+                    <p>Continuous monitoring and optimization of your campaigns based on detailed performance metrics and audience insights.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits">
+        <div class="container">
+            <h2>Benefits of Our Digital Marketing Approach</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Measurable Results</h3>
+                    <p>Track ROI and campaign performance with comprehensive analytics and regular reporting.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Targeted Reach</h3>
+                    <p>Connect with your ideal customers through precise audience segmentation and targeting.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Cost Effectiveness</h3>
+                    <p>Maximize your marketing budget with strategies that deliver the highest return on investment.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Adaptable Strategies</h3>
+                    <p>Quickly adjust campaigns based on market trends and performance data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2>Our Digital Marketing Process</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>1. Discovery & Research</h3>
+                    <p>We analyze your business, competitors, and target audience to identify opportunities and challenges.</p>
+                </div>
+                <div class="service-card">
+                    <h3>2. Strategy Development</h3>
+                    <p>Creating a custom marketing plan with clear objectives, tactics, and key performance indicators.</p>
+                </div>
+                <div class="service-card">
+                    <h3>3. Implementation</h3>
+                    <p>Executing campaigns across relevant channels with compelling messaging and creative assets.</p>
+                </div>
+                <div class="service-card">
+                    <h3>4. Monitoring & Optimization</h3>
+                    <p>Continuous tracking and refinement to improve performance and maximize return on investment.</p>
+                </div>
+                <div class="service-card">
+                    <h3>5. Reporting & Analysis</h3>
+                    <p>Regular, transparent reporting with actionable insights for ongoing strategy improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Grow Your Business?</h2>
+            <p>Let's create a digital marketing strategy that delivers real results for your business. Schedule a free consultation today.</p>
+            <a href="#" class="btn btn-white">Schedule Consultation</a>
+            <a href="#" class="btn btn-outline">View Case Studies</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>QBtriq</h4>
+                    <p>Your partner in innovative digital marketing, social media growth, and web development.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Social Media Growth</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: socials.qbtriq@gmail.com</p>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📸</a>
+                        <a href="#">🔗</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 QBtriq. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

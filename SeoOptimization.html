@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Optimization | QBtriq</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #34c5ba;
+            --dark-color: #333;
+            --light-color: #f4f7ff;
+            --text-color: #555;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: var(--heading-font);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/400') center/cover;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-family: var(--heading-font);
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-heading h2 {
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-family: var(--heading-font);
+        }
+        
+        .section-heading p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-family: var(--heading-font);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex-basis: 22%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-family: var(--heading-font);
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -50px;
+            width: 100px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: var(--heading-font);
+        }
+        
+        .cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .testimonials {
+            background: var(--light-color);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: #ddd;
+        }
+        
+        .faq-section {
+            background: #fff;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-family: var(--heading-font);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+        }
+        
+        .faq-question.active + .faq-answer {
+            display: block;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-family: var(--heading-font);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin-bottom: 40px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">QBtriq</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>SEO Optimization</h1>
+            <p>Boost your online visibility and drive more organic traffic to your website</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Dominate Search Rankings</h2>
+                <p>Our comprehensive SEO solutions are designed to propel your website to the top of search engine results and drive sustainable organic growth.</p>
+            </div>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="service-title">Keyword Research & Strategy</h3>
+                    <p>We identify high-value keywords that your potential customers are searching for, then develop a comprehensive strategy to target them effectively.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title">On-Page SEO</h3>
+                    <p>We optimize each page of your website with meta tags, header tags, internal linking, and keyword-rich content to maximize search engine visibility.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="service-title">Off-Page SEO</h3>
+                    <p>We build high-quality backlinks from reputable sources, increase your domain authority, and improve your overall online reputation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Technical SEO</h3>
+                    <p>We enhance your website's speed, mobile-friendliness, crawlability, and fix technical issues that may be hindering your search performance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Analytics & Reporting</h3>
+                    <p>We provide detailed reports and insights on your SEO performance, keyword rankings, traffic growth, and conversion rates.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3 class="service-title">Content Optimization</h3>
+                    <p>We create and optimize engaging, keyword-rich content that satisfies both search engines and your audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #f4f7ff;">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our SEO Process</h2>
+                <p>We follow a proven methodology to boost your search engine performance</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Audit & Analysis</h3>
+                    <p>Comprehensive review of your current SEO status, competitors, and market opportunities.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Strategy Development</h3>
+                    <p>Custom SEO plan built around your business goals and target audience.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Implementation</h3>
+                    <p>Execution of on-page, off-page, and technical SEO optimizations.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Monitor & Refine</h3>
+                    <p>Continuous tracking, reporting, and strategy adjustments for optimal results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Success Stories</h2>
+                <p>See how our SEO services have transformed businesses like yours</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"QBtriq's SEO strategies helped us increase our organic traffic by 185% in just six months. Their team is knowledgeable, responsive, and truly invested in our success."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image"></div>
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Director, TechStart Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"We were struggling to compete online until we partnered with QBtriq. Their SEO expertise helped us rank for competitive keywords, resulting in a 75% increase in qualified leads."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image"></div>
+                        <div>
+                            <h4>Michael Chang</h4>
+                            <p>CEO, Horizon Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The ROI from QBtriq's SEO services has been phenomenal. We've seen a 42% reduction in our customer acquisition costs and a significant boost in our e-commerce sales."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image"></div>
+                        <div>
+                            <h4>Emily Rodriguez</h4>
+                            <p>Owner, Bloom Boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about our SEO services</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does it take to see results from SEO?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>SEO is a long-term strategy, but you can typically begin to see initial improvements within 3-6 months. Significant results often take 6-12 months, depending on your industry competition, website history, and the scope of the optimization required. We provide regular progress reports so you can track improvements throughout the process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What makes QBtriq's SEO services different?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We take a holistic, data-driven approach to SEO that combines technical expertise with creative content strategies. Unlike agencies that use cookie-cutter methods, we develop customized SEO plans based on your specific industry, competition, and business goals. We also emphasize transparent reporting and maintain ethical "white hat" practices that ensure sustainable, long-term results.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you guarantee first-page rankings?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No reputable SEO agency can guarantee specific rankings, as search engines constantly update their algorithms. However, we have a proven track record of significantly improving rankings for our clients. We focus on sustainable strategies that deliver long-term results rather than quick fixes that could harm your site in the future.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do you measure SEO success?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We track multiple metrics including keyword rankings, organic traffic growth, conversion rates, bounce rates, time on site, and ultimately, return on investment. Our comprehensive monthly reports provide full transparency into your campaign's performance. We also establish clear KPIs at the beginning of our partnership to ensure we're aligned on what success looks like for your business.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you handle local SEO?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in local SEO for businesses targeting customers in specific geographic areas. Our local SEO services include Google Business Profile optimization, local citation building, review management, and location-specific keyword targeting to help you dominate local search results and attract more customers from your community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Boost Your Search Visibility?</h2>
+            <p>Get a free SEO audit and discover how we can help you climb the rankings and drive more organic traffic to your website.</p>
+            <a href="#contact" class="btn">Request Your Free Audit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>QBtriq</h3>
+                    <p>Your partner in innovative digital marketing, social media growth, and web development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Features</h3>
+                    <ul class="footer-links">
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                        <li><a href="social-media-growth.html">Social Media Growth</a></li>
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="seo-optimization.html">SEO Optimization</a></li>
+                        <li><a href="ppc-advertising.html">PPC Advertising</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>Email: socials.qbtriq@gmail.com</p>
+                    <p>Follow us on social media for updates and insights.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 QBtriq. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
